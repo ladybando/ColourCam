@@ -1,11 +1,11 @@
 #!/usr/bin/env ruby
 
-require 'opencv'
+#require 'opencv'
 
 require "bundler/setup"
-require "makeup_maker"
-require "environment"
+require "./config/environment"
 require "irb"
+require './lib/picture'
 IRB.start
 
 require "pry"

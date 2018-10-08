@@ -1,6 +1,9 @@
-require 'rb_webcam'
-require 'RMagick'
-require 'console.rb'
+#require 'rb_webcam'
+#require 'RMagick'
+require './bin/console.rb'
+require 'bundler'
+Bundler.require
+require_all 'lib'
 
 capture = Webcam.new
 

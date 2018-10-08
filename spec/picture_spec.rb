@@ -168,11 +168,10 @@ describe "Pictures" do
   end
 
   describe ".create" do
-    it "initializes and saves the song" do
-      created_song = Pictures.create("Image")
+    it "initializes and saves the picture" do
+      created_picture = Pictures.create("Image")
 
       expect(Pictures.all).to include(created_image)
     end
   end
 end
-picture
