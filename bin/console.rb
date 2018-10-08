@@ -4,7 +4,7 @@ require 'opencv'
 
 require "bundler/setup"
 require "makeup_maker"
-
+require "environment"
 require "irb"
 IRB.start
 

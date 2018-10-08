@@ -1,5 +1,6 @@
 require 'rb_webcam'
 require 'RMagick'
+require 'console.rb'
 
 capture = Webcam.new
 
