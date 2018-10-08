@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="de">
+<head>
+<style type="text/css">
+        form > input { margin-right: 15px; }
+        #results { float:center; margin:5px; padding:5px; border:1px solid; background:#ccc; }
+    </style>
+</head>
+<table class="reference notranslate">
+ <tr>
+    <th>Webcam</th>
+    <th>Your captured image will appear here..</th>
+ </tr>
+ </tr>
+    <td>
+<video autoplay id="vid" width="320" height="240" style="border:1px solid #d3d3d3;"></video></br>
+<button onclick="snapshot()">Take Picture</button>
+    </td>
+    <td>
+<div id="results">Your captured image will appear here...<
+<canvas id="canvas" width="320" height="240"></canvas>
+</div>
+<br>
+
+ <button onclick="upload()">upload</button>
+    </td>
+ </tr>
+</table>
+<script type="text/javascript">
+
+    var video = document.querySelector("#vid");
+    var canvas = document.querySelector('#canvas');
+    var ctx = canvas.getContext('2d');
+    ctx.scale(0.5,0.5);
+    var localMediaStream = null;
+
+
+
+    var onCameraFail = function (e) {
+        console.log('Camera did not work.', e);
+    }
+
+    function snapshot() {
+        if (localMediaStream) {
+            ctx.drawImage(video, 0, 0);
+
+    }
+    }
+    navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia ||  navigator.mozGetUserMedia || navigator.msGetUserMedia;
+    window.URL = window.URL || window.webkitURL;
+    navigator.getUserMedia({video:true}, function (stream) {
+        video.src = window.URL.createObjectURL(stream);
+        localMediaStream = stream;
+    }, onCameraFail);
+
+ redirectTime = "1500";
+
+function timedRedirect() {
+
+    setTimeout("history.back();",redirectTime);
+};
+
+function upload()  {
+var oCanvas = document.getElementById("canvas");
+Canvas2Image.saveAsPNG(oCanvas);  // will prompt the user to save the image as PNG
+var oImgPNG = Canvas2Image.saveAsPNG(oCanvas, true);
+ JavaScript:timedRedirect()
+
+};
+
+
+</script>
