@@ -115,8 +115,8 @@
 # end
 
 
-require "spec_helper"
-
+#require "spec_helper"
+require "./lib/picture"
 describe "Pictures" do
   let(:picture) { Pictures.new("Image") }
 
@@ -151,7 +151,7 @@ describe "Pictures" do
 
   describe ".destroy_all" do
     it "resets the @@all class variable to an empty array" do
-      Pictures.class_variable_set(:@@all, [song])
+      Pictures.class_variable_set(:@@all, [picture])
 
       Pictures.destroy_all
 
@@ -163,7 +163,7 @@ describe "Pictures" do
     it "adds the Pictures instance to the @@all class variable" do
       picture.save
 
-      expect(Pictures.all).to include(song)
+      expect(Pictures.all).to include(picture)
     end
   end
 
@@ -171,7 +171,7 @@ describe "Pictures" do
     it "initializes and saves the picture" do
       created_picture = Pictures.create("Image")
 
-      expect(Pictures.all).to include(created_image)
+      expect(Pictures.all).to include(created_picture)
     end
   end
 end
